@@ -17,9 +17,10 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import HomeScreen from '../screens/HomeScreen/index';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { HomeParamlist, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-
+import MovieDetailsScreen from '../components/MovieDetailsScreen/index';
+ 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
@@ -65,7 +66,7 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="Home"
-        component={HomeScreen}
+        component={TabOneNavigator}
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
@@ -121,4 +122,25 @@ function TabBarIcon(props: {
   color: string;
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+}
+
+const HomeStack = createNativeStackNavigator<HomeParamlist>();
+function TabOneNavigator ()
+{
+  return (
+    <HomeStack.Navigator >
+      <HomeStack.Screen
+      name = "MovieDetailsScreen"
+      component = {MovieDetailsScreen}
+      options={{headerShown:false}}
+      />
+   
+   
+      <HomeStack.Screen
+      name = "HomeScreen"
+      component = {HomeScreen}
+      options={{headerShown:false}}
+      />
+    </HomeStack.Navigator>
+  )
 }

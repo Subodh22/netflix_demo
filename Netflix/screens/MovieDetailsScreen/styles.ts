@@ -21,6 +21,32 @@ const styles=StyleSheet.create(
             color:'#757575',
             marginRight:5
         },
+        playButton:{
+            backgroundColor:'white',
+            justifyContent:'center',
+            alignItems:'center',
+            padding:5,
+            borderRadius:3
+        }
+        ,
+        downloadButton:{
+            backgroundColor:'#2b2b2b',
+            justifyContent:'center',
+            alignItems:'center',
+            padding:5,
+            borderRadius:3
+        },
+        playButtonText:{
+            color:'black',
+            fontSize:16,
+            fontWeight:'bold'
+        },
+        downloadButtonText:{color:'black',
+        fontSize:16,
+        fontWeight:'bold',
+        marginVertical:5
+    },
+
         ageContainer:{
             backgroundColor:'#ffea61',
             justifyContent:'center',

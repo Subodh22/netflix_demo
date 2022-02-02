@@ -19,7 +19,7 @@ import HomeScreen from '../screens/HomeScreen/index';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { HomeParamlist, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import MovieDetailsScreen from '../components/MovieDetailsScreen/index';
+import MovieDetailsScreen from '../screens/MovieDetailsScreen/index';
  
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (

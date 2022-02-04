@@ -26,7 +26,10 @@ const styles=StyleSheet.create(
             justifyContent:'center',
             alignItems:'center',
             padding:5,
-            borderRadius:3
+            borderRadius:3,
+            
+            marginVertical:5
+         
         }
         ,
         downloadButton:{
@@ -34,7 +37,8 @@ const styles=StyleSheet.create(
             justifyContent:'center',
             alignItems:'center',
             padding:5,
-            borderRadius:3
+            borderRadius:3,
+            marginVertical:5
         },
         playButtonText:{
             color:'black',

@@ -1,24 +1,31 @@
 import { MaterialIcons,Entypo, AntDesign, Feather, Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Pressable,FlatList } from 'react-native';
 import movie from '../../assets/data/movie';
 import { Text,View } from '../../components/Themed';
 import styles from './styles';
 import EpisodeItem from '../../components/EpisodeComponent';
+import { Picker } from '@react-native-picker/picker';
+import VideoPlayer from '../../components/VideoPlayer';
+ 
 
 const firstSeason = movie.seasons.items[0];
 const firstepisode = firstSeason.episodes.items[0];
 const MovieDetailsScreen=()=> {
+  const [currentSeason,setCurrentSeason]=useState(firstSeason)
+  const [currentEpisode,setCurrentEpisode]=useState(firstSeason.episodes.items[0])
+  const seasonNames=movie.seasons.items.map(season=>season.name);
   return(
      <View>
-     <Image style={styles.image} source={{uri:firstepisode.poster}}/>
-     
+     {/* <Image style={styles.image} source={{uri:firstepisode.poster}}/> */}
+     <VideoPlayer episode={currentEpisode}/> 
 
      
      <FlatList
      style={{marginBottom:250}}
-     data={firstSeason.episodes.items}
-     renderItem={({item})=><EpisodeItem episode={item}/>}
+     data={currentSeason.episodes.items}
+
+     renderItem={({item})=><EpisodeItem episode={item} onPress= {setCurrentEpisode}/>}
      ListHeaderComponent={(
 <View style={{padding:12}}>
          <Text style={styles.title}>{movie.title}</Text>
@@ -29,7 +36,7 @@ const MovieDetailsScreen=()=> {
             <Text style={styles.age}>12+</Text>
         </View>
         <Text style={styles.year}>{movie.numberOfSeasons} Seasons</Text>
-        <MaterialIcons name="hd" size={24} color="Black" ></MaterialIcons>
+        <MaterialIcons name="hd" size={24} color="white" ></MaterialIcons>
 
      </View>
      {/*play button */}
@@ -45,7 +52,7 @@ const MovieDetailsScreen=()=> {
     <Text style={{marginVertical:10}}>{movie.plot}</Text>
     <Text style={styles.year}>Cast:{movie.cast}</Text>
     <Text style={styles.year}>Creator:{movie.creator}</Text>
-    <View style={{flexDirection:'row'}}>
+    <View style={{flexDirection:'row' ,paddingTop:10}}>
       <View style={{alignItems:'center', marginHorizontal:20}}>
         <AntDesign name="plus" size={24} color={'white'}/>
         <Text style={{color:'darkgrey'}}>My list</Text>
@@ -60,6 +67,19 @@ const MovieDetailsScreen=()=> {
       </View>
 
     </View>
+
+    <Picker style={{color:"white",width:150
+    
+  }}
+  dropdownIconColor={'white'}
+    selectedValue={currentSeason.name}
+    onValueChange={(itemValue,itemIndex)=>{
+      setCurrentSeason(movie.seasons.items[itemIndex])
+    }}>
+      
+      {seasonNames.map(seasonName=>( <Picker.Item label={seasonName} value={seasonName} key={seasonName}/>))}
+     
+     </Picker>
      </View>
 
      )}

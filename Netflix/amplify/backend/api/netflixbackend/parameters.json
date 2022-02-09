@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "netflixbackend",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authnetflixbackendfbe0c4be",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

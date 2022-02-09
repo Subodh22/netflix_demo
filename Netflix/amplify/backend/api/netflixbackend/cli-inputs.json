@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "netflixbackend",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Subodh Maharjan\\Documents\\GitHub\\netflix_demo\\Netflix\\amplify\\backend\\api\\netflixbackend\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authnetflixbackendfbe0c4be"
+    },
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
+  }
+}
